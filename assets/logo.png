@@ -1,0 +1,29 @@
+from PIL import Image, ImageDraw, ImageFont
+
+# Create canvas
+width, height = 500, 500
+img = Image.new("RGB", (width, height), "#4F46E5")
+draw = ImageDraw.Draw(img)
+
+# Draw circle
+draw.ellipse((80, 80, 420, 420), fill="#FFFFFF")
+
+# Add text
+try:
+    font = ImageFont.truetype("arial.ttf", 140)
+except:
+    font = ImageFont.load_default()
+
+draw.text((150, 155), "AI", fill="#4F46E5", font=font)
+
+# Subtitle
+try:
+    font2 = ImageFont.truetype("arial.ttf", 40)
+except:
+    font2 = ImageFont.load_default()
+
+draw.text((110, 350), "Student Analytics", fill="#4F46E5", font=font2)
+
+img.save("logo.png")
+
+print("logo.png created successfully!")
